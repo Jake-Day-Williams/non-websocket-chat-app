@@ -1,8 +1,6 @@
 <div class="ui segment">
-  <h3>Mailbox</h3>
-
-  <div class="ui list">
-    <div class="item">
+  
+    <div class="ui center cards">
       <% @conversations.each do |conversation| %>
         <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
           <% if conversation.sender_id == current_user.id %>
@@ -10,12 +8,34 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <%= link_to recipient.first_name, conversation_messages_path(conversation)%>
+            <div class="card">
+              <div class="image">
+                <%= image_tag "general-icon.png" %>
+              </div>
+              <div class="content">
+                <div class="header"><%= link_to recipient.first_name, conversation_messages_path(conversation)%></div>
+              <div class="meta">
+                <a>Friends</a>
+              </div>
+              <div class="description">
+                Matthew is an interior designer living in New York.
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                Joined in 2013
+              </span>
+            <span>
+              <i class="user icon"></i>
+                75 Friends
+            </span>
+          </div>
+        </div>
+          </br>
         <% end %>
       <% end %>
     </div>
   </div>
-</div>
 
 
 <div class="ui segment">
