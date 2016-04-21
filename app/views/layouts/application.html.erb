@@ -10,20 +10,14 @@
   <div class="ui grid">
     <div class="row">
       <div class="fourteen wide centered column">
-        <h2 class="ui blue header">
-          <i class="violet comments icon"></i>
-          <div class="content">
-            chatter
-          </div>
-        </h2>
         <div class="ui blue inverted menu">
-            <% if current_user %>
+          <% if current_user %>
               <%= link_to "Conversations", conversations_path, class: "item" %>
               <div class="right menu">
                 <%= link_to 'Sign Out', signout_path, class: "item" %>
               </div>
             <% else %>
-              <div class="right menu">
+              <div class="left menu">
                 <%= link_to 'Sign Up', signup_path, class: "item" %>
                 <%= link_to "Sign-In", signin_path, class: "item" %>
               </div>

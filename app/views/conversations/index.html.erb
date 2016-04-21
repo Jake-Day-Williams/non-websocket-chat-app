@@ -1,6 +1,6 @@
 <div class="ui segment">
   
-    <div class="ui center cards">
+    <div class="ui link cards">
       <% @conversations.each do |conversation| %>
         <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
           <% if conversation.sender_id == current_user.id %>
@@ -10,7 +10,7 @@
           <% end %>
             <div class="card">
               <div class="image">
-                <%= image_tag "general-icon.png" %>
+                <%= image_tag "general-icon.png"%>
               </div>
               <div class="content">
                 <div class="header"><%= link_to recipient.first_name, conversation_messages_path(conversation)%></div>
